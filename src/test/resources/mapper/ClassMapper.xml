@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.ClassMapper">
+    <cache/>
+    <resultMap id="ClassResult" type="entity.ClassEntity"> 
+       <id property="classId" column="classId" jdbcType="INTEGER"/>  
+       <result property="className" column="className" javaType="java.lang.String" jdbcType="VARCHAR" typeHandler="handler.StringTypeHandler" />  
+    </resultMap> 
+    
+    <!--<cache-ref namespace="mapper.ClassMapper"/>-->
+    <select id="getClassById" parameterType="int" resultMap="ClassResult">
+        SELECT classId,className as newName FROM CLASS WHERE classId = #{classId}
+    </select>
+    <!-- <select id="getClassById" parameterType="int" resultType="entity.ClassEntity">
+        SELECT classId,className FROM CLASS WHERE classId = #{classId}
+    </select> -->
+    
+    <!--<cache-ref namespace="mapper.ClassMapper"/>-->
+    <select id="getClassByList" resultType="entity.ClassEntity">
+        SELECT * FROM CLASS
+    </select>
+    
+    <!--<cache-ref namespace="mapper.ClassMapper"/>-->
+    <insert id="addClass" parameterType="entity.ClassEntity" useGeneratedKeys="true" keyProperty="classId">
+        INSERT INTO CLASS(className) VALUES(#{className})
+    </insert>
+    
+    <!--<cache-ref namespace="mapper.ClassMapper"/>-->
+    <update id="updateClass" parameterType="entity.ClassEntity" >
+        UPDATE CLASS SET className = #{className} WHERE classId = #{classId}
+    </update>
+    
+    <!--<cache-ref namespace="mapper.ClassMapper"/>-->
+    <delete id="deleteClass">
+        DELETE FROM CLASS WHERE classId = #{classId}
+    </delete>
+    
+    <!--<cache-ref namespace="mapper.ClassMapper"/>-->
+    <update id="truncateClass" statementType="STATEMENT">
+        TRUNCATE TABLE CLASS;
+    </update>
+</mapper>

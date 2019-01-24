@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.InitSqlMapper">
+    <cache/>
+
+    <update id="dropTabel" parameterType="String" statementType="STATEMENT">
+        DROP TABLE ${tableName}
+    </update>
+    <update id="createTabel" parameterType="String" statementType="STATEMENT">
+        CREATE TABLE ${tableName}
+       (S_EXT_NODENUM          VARCHAR(40) NOT NULL,
+       PRIPID                 VARCHAR(36),
+       CANREA                 VARCHAR(1000),
+       CANDATE                DATETIME,
+       CANAUTH                VARCHAR(500),
+       SANDOCNO               VARCHAR(50),
+       PUBNEWSNAME            VARCHAR(100),
+       PUBDATE                DATETIME,
+       EXTCLEBRSIGN           VARCHAR(1),
+       CANCELBRSIGN           VARCHAR(1),
+       DECLEBRSIGN            VARCHAR(1),
+       AFFWRITNO              VARCHAR(50),
+       BLICREVORINUM          NUMERIC(20,0),
+       BLICREVORINO           VARCHAR(36),
+       BLICREVDUPCONUM        NUMERIC(20,0),
+       CAREVNUM               NUMERIC(20,0),
+       CAREVST                VARCHAR(255),
+       S_EXT_TIMESTAMP        DATETIME,
+       S_EXT_BATCH            VARCHAR(40),
+       S_EXT_SEQUENCE         VARCHAR(32) NOT NULL,
+       S_EXT_VALIDFLAG        VARCHAR(1),
+       S_EXT_ICODE            VARCHAR(128),
+       S_EXT_CODETIME         DATETIME);
+    </update>
+    
+    <update id="commentTabel" parameterType="String" statementType="STATEMENT">
+       COMMENT ON TABLE ${tableName} IS '测试用CANCEL表';
+    </update>
+    
+    <update id="createTabelIndex" parameterType="String" statementType="STATEMENT">
+       CREATE INDEX IND_E_CANCEL_01 ON ${tableName}("S_EXT_NODENUM","S_EXT_VALIDFLAG" DESC,"S_EXT_TIMESTAMP") INDEXTYPE IS BTREE LOCAL;
+       CREATE INDEX IND_E_CANCEL_PRIPID ON ${tableName}("S_EXT_NODENUM","PRIPID","S_EXT_VALIDFLAG" DESC) INDEXTYPE IS BTREE LOCAL;
+    </update>
+    
+    <update id="addTabelConstraint" parameterType="String" statementType="STATEMENT">
+       alter table ${tableName} add constraint PK_CONSTRAINT primary key(S_EXT_NODENUM,S_EXT_SEQUENCE);
+    </update>
+</mapper>
+
+
+
+
+
+
+
+

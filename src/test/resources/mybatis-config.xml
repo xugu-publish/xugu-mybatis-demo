@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!--配置文件地址 -->
+	<properties resource="local-xugu.properties" />
+
+	<settings>
+		<setting name="localCacheScope" value="SESSION" />
+		<setting name="cacheEnabled" value="true" />
+		<!--开启驼峰式命名，数据库的列名能够映射到去除下划线驼峰命名后的字段名 -->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<setting name="logImpl" value="LOG4J" />
+	</settings>
+
+	<typeAliases>
+		<!-- druid 连接池 -->
+		<typeAlias type="datasource.DruidDataSourceFactory"
+			alias="druid" />
+		<!-- c3p0 连接池 -->
+		<typeAlias type="datasource.C3p0DatasourceFactory"
+			alias="c3p0" />
+	</typeAliases>
+	
+	<typeHandlers>
+	   	 <!--<typeHandler handler="com.yongssu.mybatis.demo1.StringArrayTypeHandler" javaType="[Ljava.lang.String;" jdbcType="VARCHAR"/>-->
+	   	 <typeHandler handler="handler.StringTypeHandler" javaType="java.lang.String" jdbcType="VARCHAR"/>
+	   	 <typeHandler handler="handler.DateTypeHandler" javaType="java.util.Date" jdbcType="DATE"/>
+	   	 <typeHandler handler="handler.StringArrayTypeHandler" javaType="[Ljava.lang.String;" jdbcType="VARCHAR"/>
+	</typeHandlers>
+
+	<environments default="development">
+		<environment id="development">
+			<!--使用默认的JDBC事务管理 -->
+			<transactionManager type="JDBC" />
+			<!--使用连接池 -->
+			<dataSource type="POOLED">
+				<!--这里会替换为local-xugu.properties中的对应字段的值 -->
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+		<environment id="druid">
+			<transactionManager type="JDBC" />
+			<!-- 配置数据库连接信息 -->
+			<!-- 使用druid连接池 -->
+			<dataSource type="druid">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+				<!-- 配置初始化大小、最小、最大 -->
+				<property name="initialSize" value="1" />
+				<property name="minIdle" value="1" />
+				<property name="maxActive" value="10" />
+
+				<!-- 配置获取连接等待超时的时间 -->
+				<property name="maxWait" value="10000" />
+
+				<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+				<property name="timeBetweenEvictionRunsMillis"
+					value="60000" />
+
+				<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+				<property name="minEvictableIdleTimeMillis" value="300000" />
+
+				<property name="testWhileIdle" value="true" />
+
+				<!-- 这里建议配置为TRUE，防止取到的连接不可用 -->
+				<property name="testOnBorrow" value="true" />
+				<property name="testOnReturn" value="false" />
+
+				<!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+				<property name="poolPreparedStatements" value="true" />
+				<property name="maxPoolPreparedStatementPerConnectionSize"
+					value="20" />
+
+				<!-- 这里配置提交方式，默认就是TRUE，可以不用配置 -->
+
+				<property name="defaultAutoCommit" value="true" />
+
+				<!-- 验证连接有效与否的SQL，不同的数据配置不同 -->
+				<property name="validationQuery" value="select 1 from dual" />
+				<property name="filters" value="stat" />
+			</dataSource>
+		</environment>
+		<environment id="c3p0">
+			<transactionManager type="JDBC" />
+			<!-- 使用c3p0连接池 -->
+			<dataSource type="c3p0">
+				<property name="driverClass" value="${driver}" />
+				<property name="jdbcUrl" value="${url}" />
+				<property name="user" value="${username}" />
+				<property name="password" value="${password}" />
+				<property name="initialPoolSize" value="5"/>
+                <property name="maxPoolSize" value="20"/>
+                <property name="minPoolSize" value="5"/>
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!--SQL映射文件,mybatis的核心 -->
+	<mappers>
+		<mapper resource="mapper/InitSqlMapper.xml" />
+		<mapper resource="mapper/StudentMapper.xml" />
+		<mapper resource="mapper/ClassMapper.xml" />
+		<mapper class="mapper.ClassAnnotationMapper" />
+	</mappers>
+</configuration>
