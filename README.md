@@ -5,12 +5,14 @@
    2. entity：数据库表实体类
    3. handler：mybatis类型处理器，针对特殊数据类型进行处理
    4. mapper:数据库访问接口
+   
 二. 代码结构(src.test.java)：
    1. mapper:测试方法
    2. AnnotationTest:使用MyBatis注解方式访问数据库
    3. DatabaseDdlTest:使用MyBatis执行DDL语句(使用Statement方式)
    4. DatabaseDmlTest:使用MyBatis执行DML语句(默认Preparestatment)
    5. MyBatisCacheTest:MyBatis二级缓存使用测试
+   
 三. 资源文件(src.test.sources):
    1. ClassMapper.xml:对应实体ClassEntity的MyBaits接口映射文件
    2. InitSqlMapper.xml:对应MyBatis的DDL语句执行接口映射文件
