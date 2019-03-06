@@ -104,7 +104,7 @@ __IntelliJ__
 
 
 ### Asking for help
-Please go to https://www.xugucn.com to ask questions and get help.
+Please go to www.xugucn.com to ask questions and get help.
 
 Documentation
 --------------
