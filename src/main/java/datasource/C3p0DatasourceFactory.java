@@ -4,7 +4,7 @@ import org.apache.ibatis.datasource.unpooled.UnpooledDataSourceFactory;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 /**
  * c3p0连接池
- * @author wsy
+ * @author xugu-publish
  * @date 2019/01/23
  * @since 1.8
  */

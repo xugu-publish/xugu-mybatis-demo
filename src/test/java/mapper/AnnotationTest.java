@@ -15,7 +15,7 @@ import entity.ClassEntity;
 /**
  * 通过注解方式操作MyBatis
  * 
- * @author wsy
+ * @author xugu-publish
  * @Title:
  * @Description:
  * @date 2019/01/22
@@ -46,7 +46,7 @@ public class AnnotationTest {
 	 */
 	@Test
 	public void testInsert() throws Exception {
-		SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
+		SqlSession sqlSession1 = factory.openSession(true);
 
 		ClassAnnotationMapper classAnnotationMapper = sqlSession1.getMapper(ClassAnnotationMapper.class);
 
@@ -61,7 +61,7 @@ public class AnnotationTest {
 	 */
 	@Test
 	public void testSelect() throws Exception {
-		SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
+		SqlSession sqlSession1 = factory.openSession(true);
 
 		ClassAnnotationMapper classAnnotationMapper = sqlSession1.getMapper(ClassAnnotationMapper.class);
 
@@ -79,7 +79,7 @@ public class AnnotationTest {
 	 */
 	@Test
 	public void testUpdate() throws Exception {
-		SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
+		SqlSession sqlSession1 = factory.openSession(true);
 
 		ClassAnnotationMapper classAnnotationMapper = sqlSession1.getMapper(ClassAnnotationMapper.class);
 		List<ClassEntity> entityList = classAnnotationMapper.getClassByList();
@@ -109,7 +109,7 @@ public class AnnotationTest {
 	 */
 	@Test
 	public void testDelete() throws Exception {
-		SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
+		SqlSession sqlSession1 = factory.openSession(true);
 
 		ClassAnnotationMapper classAnnotationMapper = sqlSession1.getMapper(ClassAnnotationMapper.class);
 		List<ClassEntity> entityList = classAnnotationMapper.getClassByList();
@@ -133,9 +133,9 @@ public class AnnotationTest {
 	 * 
 	 * @throws Exception
 	 */
-	//@Test
+	@Test
 	public void testTruncate() throws Exception {
-		SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
+		SqlSession sqlSession1 = factory.openSession(true);
 
 		ClassAnnotationMapper classAnnotationMapper = sqlSession1.getMapper(ClassAnnotationMapper.class);
 		List<ClassEntity> entityList = classAnnotationMapper.getClassByList();

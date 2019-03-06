@@ -14,7 +14,7 @@ import entity.ClassEntity;
 /**
  * MyBatis数据库访问接口定义(注解方式)
  * 
- * @author wsy
+ * @author xugu-publish
  * @date 2019/01/22
  * @since 1.8
  */

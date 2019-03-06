@@ -9,7 +9,7 @@ import com.alibaba.druid.pool.DruidDataSource;
 /**
  * druid 连接池
  * 
- * @author wsy
+ * @author xugu-publish
  * @date 2019/01/23
  * @since 1.8
  */

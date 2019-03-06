@@ -8,6 +8,12 @@ import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * 测试数据库DDL语句
+ * @author xugu-publish
+ * @date 2019/01/22
+ * @since 1.8
+ */
 public class DatabaseDdlTest {
 	private SqlSessionFactory factory;
 
@@ -26,7 +32,7 @@ public class DatabaseDdlTest {
 	 */
 	@Test
 	public void testStatement() throws Exception {
-		SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
+		SqlSession sqlSession1 = factory.openSession(true); 
 
         StudentMapper studentMapper = sqlSession1.getMapper(StudentMapper.class);
 
@@ -60,7 +66,7 @@ public class DatabaseDdlTest {
 	 * @throws Exception
 	 */
 	public void testDropTabel() throws Exception {
-		SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
+		SqlSession sqlSession1 = factory.openSession(true);
 
         InitSqlMapper initSqlMapper = sqlSession1.getMapper(InitSqlMapper.class);
 
@@ -74,7 +80,7 @@ public class DatabaseDdlTest {
 	 * @throws Exception
 	 */
 	public void testCreateTabel() throws Exception {
-		SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
+		SqlSession sqlSession1 = factory.openSession(true); 
 
         InitSqlMapper initSqlMapper = sqlSession1.getMapper(InitSqlMapper.class);
 
@@ -83,7 +89,7 @@ public class DatabaseDdlTest {
 	}
 	
 	public void testCommentTabel() throws Exception {
-		SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
+		SqlSession sqlSession1 = factory.openSession(true);
 
         InitSqlMapper initSqlMapper = sqlSession1.getMapper(InitSqlMapper.class);
 
@@ -92,7 +98,7 @@ public class DatabaseDdlTest {
 	}
 	
 	public void testAddConstraint() throws Exception {
-		SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
+		SqlSession sqlSession1 = factory.openSession(true);
 
         InitSqlMapper initSqlMapper = sqlSession1.getMapper(InitSqlMapper.class);
 
@@ -101,7 +107,7 @@ public class DatabaseDdlTest {
 	}
 	
 	public void testAddIndex() throws Exception {
-		SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
+		SqlSession sqlSession1 = factory.openSession(true);
 
         InitSqlMapper initSqlMapper = sqlSession1.getMapper(InitSqlMapper.class);
 

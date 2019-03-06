@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Param;
 /**
  * 使用MyBatis执行DDL语句
  * 
- * @author wsy
+ * @author xugu-publish
  * @date 2019/01/22
  * @since 1.8
  */

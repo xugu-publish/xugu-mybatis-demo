@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 学生信息Entity，序列化
  * 
- * @author wsy
+ * @author xugu-publish
  * @date 2019/1/22
  * @since 1.8
  */

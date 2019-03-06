@@ -8,6 +8,13 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * 测试基于MyBatis的二级缓存
+ * 
+ * @author xugu-publish
+ * @date 2019/01/22
+ * @since 1.8
+ */
 public class MyBatisCacheTest {
 
     private SqlSessionFactory factory;
@@ -31,7 +38,7 @@ public class MyBatisCacheTest {
      */
     @Test
     public void testLocalCache() throws Exception {
-        SqlSession sqlSession = factory.openSession(true); // 自动提交事务
+        SqlSession sqlSession = factory.openSession(true); 
         StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
 
         System.out.println(studentMapper.getStudentById(1));
@@ -48,7 +55,7 @@ public class MyBatisCacheTest {
      */
     @Test
     public void testLocalCacheClear() throws Exception {
-        SqlSession sqlSession = factory.openSession(true); // 自动提交事务
+        SqlSession sqlSession = factory.openSession(true);
         StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
 
         System.out.println(studentMapper.getStudentById(1));
@@ -65,8 +72,8 @@ public class MyBatisCacheTest {
      */
     @Test
     public void testLocalCacheScope() throws Exception {
-        SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
-        SqlSession sqlSession2 = factory.openSession(true); // 自动提交事务
+        SqlSession sqlSession1 = factory.openSession(true);
+        SqlSession sqlSession2 = factory.openSession(true);
 
        StudentMapper studentMapper = sqlSession1.getMapper(StudentMapper.class);
        StudentMapper studentMapper2 = sqlSession2.getMapper(StudentMapper.class);
@@ -94,8 +101,8 @@ public class MyBatisCacheTest {
      */
     @Test
     public void testCacheWithoutCommitOrClose() throws Exception {
-        SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
-        SqlSession sqlSession2 = factory.openSession(true); // 自动提交事务
+        SqlSession sqlSession1 = factory.openSession(true);
+        SqlSession sqlSession2 = factory.openSession(true);
 
         StudentMapper studentMapper = sqlSession1.getMapper(StudentMapper.class);
         StudentMapper studentMapper2 = sqlSession2.getMapper(StudentMapper.class);
@@ -112,8 +119,8 @@ public class MyBatisCacheTest {
      */
     @Test
     public void testCacheWithCommitOrClose() throws Exception {
-        SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
-        SqlSession sqlSession2 = factory.openSession(true); // 自动提交事务
+        SqlSession sqlSession1 = factory.openSession(true);
+        SqlSession sqlSession2 = factory.openSession(true);
 
         StudentMapper studentMapper = sqlSession1.getMapper(StudentMapper.class);
         StudentMapper studentMapper2 = sqlSession2.getMapper(StudentMapper.class);
@@ -131,9 +138,9 @@ public class MyBatisCacheTest {
      */
     @Test
     public void testCacheWithUpdate() throws Exception {
-        SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
-        SqlSession sqlSession2 = factory.openSession(true); // 自动提交事务
-        SqlSession sqlSession3 = factory.openSession(true); // 自动提交事务
+        SqlSession sqlSession1 = factory.openSession(true); 
+        SqlSession sqlSession2 = factory.openSession(true);
+        SqlSession sqlSession3 = factory.openSession(true); 
 
 
         StudentMapper studentMapper = sqlSession1.getMapper(StudentMapper.class);
@@ -157,9 +164,9 @@ public class MyBatisCacheTest {
      */
     @Test
     public void testCacheWithDiffererntNamespace() throws Exception {
-        SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
-        SqlSession sqlSession2 = factory.openSession(true); // 自动提交事务
-        SqlSession sqlSession3 = factory.openSession(true); // 自动提交事务
+        SqlSession sqlSession1 = factory.openSession(true); 
+        SqlSession sqlSession2 = factory.openSession(true);
+        SqlSession sqlSession3 = factory.openSession(true);
 
 
         StudentMapper studentMapper = sqlSession1.getMapper(StudentMapper.class);
@@ -185,9 +192,9 @@ public class MyBatisCacheTest {
      */
     @Test
     public void testCacheWithDiffererntNamespaceWithCacheRef() throws Exception {
-        SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
-        SqlSession sqlSession2 = factory.openSession(true); // 自动提交事务
-        SqlSession sqlSession3 = factory.openSession(true); // 自动提交事务
+        SqlSession sqlSession1 = factory.openSession(true);
+        SqlSession sqlSession2 = factory.openSession(true);
+        SqlSession sqlSession3 = factory.openSession(true);
 
 
         StudentMapper studentMapper = sqlSession1.getMapper(StudentMapper.class);
@@ -214,9 +221,9 @@ public class MyBatisCacheTest {
      */
     @Test
     public void testCacheWithDelete() throws Exception {
-        SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
-        SqlSession sqlSession2 = factory.openSession(true); // 自动提交事务
-        SqlSession sqlSession3 = factory.openSession(true); // 自动提交事务
+        SqlSession sqlSession1 = factory.openSession(true);
+        SqlSession sqlSession2 = factory.openSession(true);
+        SqlSession sqlSession3 = factory.openSession(true);
 
 
         StudentMapper studentMapper = sqlSession1.getMapper(StudentMapper.class);

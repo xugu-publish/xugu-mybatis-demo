@@ -8,7 +8,7 @@ import entity.ClassEntity;
 /**
  * MyBatis数据库访问接口定义(XML映射方式)
  * 
- * @author wsy
+ * @author xugu-publish
  * @date 2019/01/22
  * @since 1.8
  */

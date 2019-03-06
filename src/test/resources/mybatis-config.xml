@@ -46,6 +46,7 @@
 			<!-- 配置数据库连接信息 -->
 			<!-- 使用druid连接池 -->
 			<dataSource type="druid">
+				<!--这里会替换为local-xugu.properties中的对应字段的值 -->
 				<property name="driver" value="${driver}" />
 				<property name="url" value="${url}" />
 				<property name="username" value="${username}" />
@@ -89,10 +90,12 @@
 			<transactionManager type="JDBC" />
 			<!-- 使用c3p0连接池 -->
 			<dataSource type="c3p0">
+				<!--这里会替换为local-xugu.properties中的对应字段的值 -->
 				<property name="driverClass" value="${driver}" />
 				<property name="jdbcUrl" value="${url}" />
 				<property name="user" value="${username}" />
 				<property name="password" value="${password}" />
+				<!-- 配置初始化大小、最小、最大 -->
 				<property name="initialPoolSize" value="5"/>
                 <property name="maxPoolSize" value="20"/>
                 <property name="minPoolSize" value="5"/>

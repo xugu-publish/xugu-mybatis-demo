@@ -17,7 +17,7 @@ import entity.ClassEntity;
 /**
  * 测试基于MyBatis的数据库基本DML操作
  * 
- * @author wsy
+ * @author xugu-publish
  * @date 2019/01/22
  * @since 1.8
  */
@@ -47,7 +47,7 @@ public class DatabaseDmlTest {
 	 */
 	@Test
 	public void testInsert() throws Exception {
-		SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
+		SqlSession sqlSession1 = factory.openSession(true);
 
 		ClassMapper classMapper = sqlSession1.getMapper(ClassMapper.class);
 
@@ -62,7 +62,7 @@ public class DatabaseDmlTest {
 	 */
 	@Test
 	public void testSelect() throws Exception {
-		SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
+		SqlSession sqlSession1 = factory.openSession(true);
 
 		ClassMapper classMapper = sqlSession1.getMapper(ClassMapper.class);
 
@@ -80,7 +80,7 @@ public class DatabaseDmlTest {
 	 */
 	@Test
 	public void testUpdate() throws Exception {
-		SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
+		SqlSession sqlSession1 = factory.openSession(true);
 
 		ClassMapper classMapper = sqlSession1.getMapper(ClassMapper.class);
 		List<ClassEntity> entityList = classMapper.getClassByList();
@@ -110,7 +110,7 @@ public class DatabaseDmlTest {
 	 */
 	@Test
 	public void testDelete() throws Exception {
-		SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
+		SqlSession sqlSession1 = factory.openSession(true);
 
 		ClassMapper classMapper = sqlSession1.getMapper(ClassMapper.class);
 		List<ClassEntity> entityList = classMapper.getClassByList();
@@ -134,9 +134,9 @@ public class DatabaseDmlTest {
 	 * 
 	 * @throws Exception
 	 */
-	//@Test
+	@Test
 	public void testTruncate() throws Exception {
-		SqlSession sqlSession1 = factory.openSession(true); // 自动提交事务
+		SqlSession sqlSession1 = factory.openSession(true);
 
 		ClassMapper classMapper = sqlSession1.getMapper(ClassMapper.class);
 		List<ClassEntity> entityList = classMapper.getClassByList();

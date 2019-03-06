@@ -17,7 +17,7 @@ import org.apache.ibatis.type.MappedTypes;
  * 4.在setNonNullParameter方法中，我们重新定义要写往数据库的数据。 
  * 5.在另外三个方法中我们将从数据库读出的数据类型进行转换。
  * 
- * @author wsy
+ * @author xugu-publish
  * @date 2019/01/24
  * @since 1.8
  */

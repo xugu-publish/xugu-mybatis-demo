@@ -8,7 +8,7 @@ import entity.StudentEntity;
 /**
  * 表基本操作接口
  * 
- * @author wsy
+ * @author xugu-publish
  * @date 2019/01/22
  * @since 1.8
  */

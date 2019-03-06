@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>com.xugu</groupId>
 			<artifactId>cloudjdbc</artifactId>
-			<version>10.0</version>
+			<version>10.2.0.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mybatis</groupId>
